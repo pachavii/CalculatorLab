@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,52 +6,40 @@ using System.Threading.Tasks;
 
 namespace CPE200Lab1
 {
-    class RPNCalculatorEngins : CalculatorEngine
+    class RPNCalculatorEngine : CalculatorEngine
     {
         public string Process(string str)
         {
-            string result;
-            Stack rpnStack = new Stack();
-            String[] parts = str.Split(' ');
-
-            for (int i = 0; i < parts.Length; i++)
+            string result = string.Empty;
+            Stack<string> rpnstack = new Stack<string>();
+            //split string to list array
+            List<string> parts = str.Split(' ').ToList<string>();
+            //loop for each element --> till when?
+            //if isNumber
+            //Push to stack
+            //if isOperation
+            //pop second operand
+            //pop first operand
+            //result = calculate(operator,first,second)
+            //push result
+            foreach (string item in parts)
             {
-                if (isNumber(parts[i]))
+                if (isNumber(item))
                 {
-                    rpnStack.Push(parts[i]);
+                    rpnstack.Push(item);
                 }
-                else if (parts[i] == " ")
+                if (isOperator(item))
                 {
-                    break;
-                }
-                else
-               if (isOperator(parts[i]))
-                {
-
-                    String second = rpnStack.Pop().ToString();
-                    String first = rpnStack.Pop().ToString();
-                    result = calculate(parts[i], first, second);
-                    rpnStack.Push(result);
+                    String second = rpnstack.Pop();
+                    string first = rpnstack.Pop();
+                    result = calculate(item, first, second);
+                    rpnstack.Push(result);
                 }
             }
-            result = rpnStack.Pop().ToString();
-
-
-
 
 
             return result;
         }
 
-        private bool isOperator(string v)
-        {
-            throw new NotImplementedException();
-        }
-
-        private bool isNumber(string v)
-        {
-            throw new NotImplementedException();
-        }
     }
-
 }
