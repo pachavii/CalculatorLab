@@ -14,7 +14,7 @@ namespace CPE200Lab1
             Stack<string> rpnstack = new Stack<string>();
             //split string to list array
             List<string> parts = str.Split(' ').ToList<string>();
-            //loop for each element --> till when?
+            //loop for each element --> till when? 
             //if isNumber
             //Push to stack
             //if isOperation
