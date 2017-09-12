@@ -16,7 +16,7 @@ namespace CPE200Lab1
             List<string> parts = str.Split(' ').ToList<string>();
             //loop for each element --> till when? 
             //if isNumber
-            //Push to stack
+            //Push to stack 
             //if isOperation
             //pop second operand
             //pop first operand
