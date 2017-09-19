@@ -13,7 +13,7 @@ namespace CPE200Lab1
             double retNum;
             return Double.TryParse(str, out retNum);
         }
-
+           
         private bool isOperator(string str)
         {
             switch(str) {
